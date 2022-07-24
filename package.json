@@ -48,6 +48,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:prod": "npm run build -- --profile",
     "build:dev": "env-cmd -f .env  react-scripts build && npm run clean && npm run copy",
     "build:staging": "env-cmd -f .env.staging  react-scripts build && npm run clean && npm run copy",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
