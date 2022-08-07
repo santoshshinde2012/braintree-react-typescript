@@ -48,12 +48,17 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:prod": "npm run build -- --profile",
     "build:dev": "env-cmd -f .env  react-scripts build && npm run clean && npm run copy",
     "build:staging": "env-cmd -f .env.staging  react-scripts build && npm run clean && npm run copy",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext js,jsx,mjs,ts,tsx ",
-    "lint:fix": "eslint . --ext js,jsx,mjs,ts,tsx --fix"
+    "lint:fix": "eslint . --ext js,jsx,mjs,ts,tsx --fix",
+    "prepare": "husky install",
+    "precommit": "npm run lint:fix && npm run format",
+    "prepush": "npm run lint"
   },
   "eslintConfig": {
     "extends": [
